@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="win32">
+      <UniqueIdentifier>{a797780b-67c1-45ca-822b-94eccbe1ec3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameServer">
+      <UniqueIdentifier>{618062c0-2a4d-419b-bec8-859b53617100}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Entities">
+      <UniqueIdentifier>{1e288334-c88b-46b9-a3fc-661d0921ea50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameServer\Local">
+      <UniqueIdentifier>{3a87dddc-9a43-4ce4-9af1-202ff12d1cb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameServer\Remote">
+      <UniqueIdentifier>{e9a004cb-1353-4e55-8b68-c3003c40e2c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameView">
+      <UniqueIdentifier>{89ae59cb-72c4-4226-b431-ff185c521b07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameView\Local">
+      <UniqueIdentifier>{ca6eaaad-f768-4082-aceb-546080137d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameView\Remote">
+      <UniqueIdentifier>{a13d10c0-aaf9-44f4-9822-5e954c8ac465}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Messages">
+      <UniqueIdentifier>{9cd2e479-c249-4a27-9907-46308e9cfd00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{696627c7-ab25-450b-b756-f730ba9924b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Tools">
+      <UniqueIdentifier>{badcb5c1-0c70-41a3-afe9-813c500083ff}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\entity.cpp">
+      <Filter>src\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\horse.cpp">
+      <Filter>src\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\turtle.cpp">
+      <Filter>src\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameServer\gameserver.cpp">
+      <Filter>src\GameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameServer\Local\gameserverlocal.cpp">
+      <Filter>src\GameServer\Local</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameView\gameview.cpp">
+      <Filter>src\GameView</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameView\Local\gameviewlocal.cpp">
+      <Filter>src\GameView\Local</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Messages\commandmessages.cpp">
+      <Filter>src\Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Messages\statemessages.cpp">
+      <Filter>src\Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\consola.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Entities\entity.h">
+      <Filter>src\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\horse.h">
+      <Filter>src\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\turtle.h">
+      <Filter>src\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameServer\igameserver.h">
+      <Filter>src\GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameServer\gameserver.h">
+      <Filter>src\GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameServer\Local\gameserverlocal.h">
+      <Filter>src\GameServer\Local</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameView\igameview.h">
+      <Filter>src\GameView</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameView\gameview.h">
+      <Filter>src\GameView</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameView\Local\gameviewlocal.h">
+      <Filter>src\GameView\Local</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Messages\commandmessages.h">
+      <Filter>src\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Messages\statemessages.h">
+      <Filter>src\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\consola.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Tools\asserts.h">
+      <Filter>src\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Tools\memoryleaks.h">
+      <Filter>src\Tools</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
