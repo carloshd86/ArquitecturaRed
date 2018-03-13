@@ -101,12 +101,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,7 +137,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -144,6 +145,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,20 +158,33 @@
     <ClCompile Include="..\lib\consola.cpp" />
     <ClCompile Include="..\src\Entities\entity.cpp" />
     <ClCompile Include="..\src\Entities\horse.cpp" />
+    <ClCompile Include="..\src\Entities\Logic\logicentity.cpp" />
+    <ClCompile Include="..\src\Entities\Logic\logicentityhorse.cpp" />
+    <ClCompile Include="..\src\Entities\Logic\logicentityturtle.cpp" />
     <ClCompile Include="..\src\Entities\turtle.cpp" />
+    <ClCompile Include="..\src\Entities\View\viewentity.cpp" />
+    <ClCompile Include="..\src\Entities\View\viewentityhorse.cpp" />
+    <ClCompile Include="..\src\Entities\View\viewentityturtle.cpp" />
     <ClCompile Include="..\src\GameServer\gameserver.cpp" />
     <ClCompile Include="..\src\GameServer\Local\gameserverlocal.cpp" />
     <ClCompile Include="..\src\GameView\gameview.cpp" />
     <ClCompile Include="..\src\GameView\Local\gameviewlocal.cpp" />
     <ClCompile Include="..\src\Messages\commandmessages.cpp" />
     <ClCompile Include="..\src\Messages\statemessages.cpp" />
+    <ClCompile Include="..\src\Tools\compat.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\consola.h" />
     <ClInclude Include="..\src\Entities\entity.h" />
     <ClInclude Include="..\src\Entities\horse.h" />
+    <ClInclude Include="..\src\Entities\Logic\logicentity.h" />
+    <ClInclude Include="..\src\Entities\Logic\logicentityhorse.h" />
+    <ClInclude Include="..\src\Entities\Logic\logicentityturtle.h" />
     <ClInclude Include="..\src\Entities\turtle.h" />
+    <ClInclude Include="..\src\Entities\View\viewentity.h" />
+    <ClInclude Include="..\src\Entities\View\viewentityhorse.h" />
+    <ClInclude Include="..\src\Entities\View\viewentityturtle.h" />
     <ClInclude Include="..\src\GameServer\gameserver.h" />
     <ClInclude Include="..\src\GameServer\igameserver.h" />
     <ClInclude Include="..\src\GameServer\Local\gameserverlocal.h" />

@@ -7,13 +7,19 @@ class CommandMessage {
 public:
 
 	enum Type {
-		GameExit
+		GameExit,
+		GamePause,
+		GameResume
 	};
 
-	CommandMessage(Type type);
 	virtual ~CommandMessage();
 
 	virtual Type GetType() const;
+
+
+protected:
+
+	CommandMessage(Type type);
 
 
 private:
@@ -25,6 +31,34 @@ private:
 //
 // *************************************************************************************
 
+class CommandMessageGameExit : public CommandMessage {
+
+public:
+
+	CommandMessageGameExit() : CommandMessage(GameExit) {}
+};
+
+// *************************************************************************************
+//
+// *************************************************************************************
+
+class CommandMessageGamePause : public CommandMessage {
+
+public:
+
+	CommandMessageGamePause() : CommandMessage(GamePause) {}
+};
+
+// *************************************************************************************
+//
+// *************************************************************************************
+
+class CommandMessageGameResume : public CommandMessage {
+
+public:
+
+	CommandMessageGameResume() : CommandMessage(GameResume) {}
+};
 
 
 

@@ -3,6 +3,8 @@
 
 #include "entity.h"
 
+class CommandMessage;
+
 class EntityTurtle : public Entity {
 
 public:
@@ -10,6 +12,7 @@ public:
 	virtual void update(float deltaTime);
 	virtual void render();
 
+	virtual void manageCommand (const CommandMessage& message);
 };
 
 #endif

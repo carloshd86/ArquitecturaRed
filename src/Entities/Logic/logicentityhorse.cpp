@@ -1,42 +1,30 @@
-#include "gameview.h"
-#include "../Tools/asserts.h"
+#include "logicentityhorse.h"
+#include "consola.h"
+#include "../../Messages/commandmessages.h"
 
 
-GameView::GameView(IGameServer * gameServer) :
-	m_pGameServer(gameServer){
+LogicEntityHorse::LogicEntityHorse(IGameServer * pGameServer, unsigned int id) :
+	LogicEntity(pGameServer, Horse, id) {}
 
+// **************************************************************************************
+//
+// **************************************************************************************
+
+LogicEntityHorse::~LogicEntityHorse() {
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-
-GameView::~GameView() {
+void LogicEntityHorse::update(float deltaTime) {
+	MovePos(3, 3);
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-
-bool GameView::init() {
-	GAME_ASSERT(m_pGameServer);
-	m_pGameServer->registerView(this);
-
-	return true;
-}
-
-// **************************************************************************************
-//
-// **************************************************************************************
-
-void GameView::update(float deltaTime) {
-}
-
-// **************************************************************************************
-//
-// **************************************************************************************
-
-void GameView::stateChanged(const StateMessage& message) {
+void LogicEntityHorse::manageCommand(const CommandMessage& message) {
+	// TODO
 }

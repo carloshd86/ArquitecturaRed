@@ -1,15 +1,35 @@
 #include "gameserverlocal.h"
 #include "../../Tools/memoryleaks.h"
-#include "../../Entities/horse.h"
-#include "../../Entities/turtle.h"
+#include "../../Entities/Logic/logicentityhorse.h"
+#include "../../Entities/Logic/logicentityturtle.h"
+#include "../../Tools/asserts.h"
 
 
-bool GameServer::initGame() {
+GameServerLocal::GameServerLocal() {
+}
 
-	EntityHorse * horse = GAME_NEW(EntityHorse);
-	mEntities.push_back(horse);
-	EntityTurtle * turtle = GAME_NEW(EntityTurtle);
-	mEntities.push_back(turtle);
+// **************************************************************************************
+//
+// **************************************************************************************
 
-	return true;
+GameServerLocal::~GameServerLocal() {
+	removeAllEntities();
+}
+
+// **************************************************************************************
+//
+// **************************************************************************************
+
+bool GameServerLocal::initGame() {
+
+	bool result = GameServer::initGame();
+	GAME_ASSERT(result);
+
+	LogicEntityHorse * horse = GAME_NEW(LogicEntityHorse, (this, getNewIdentityId()));
+	addEntity(horse);
+	LogicEntityTurtle * turtle = GAME_NEW(LogicEntityTurtle, (this, getNewIdentityId()));
+	addEntity(turtle);
+
+	result = true;
+	return result;
 }

@@ -1,13 +1,18 @@
 #ifndef __ENTITY_H__
 #define __ENTITY_H__
 
+class CommandMessage;
 
 class Entity {
 
 public:
 
+	virtual ~Entity();
+
 	virtual void update(float deltaTime) = 0;
 	virtual void render() = 0;
+
+	virtual void manageCommand (const CommandMessage& message) = 0;
 
 	virtual void checkScreenLimits();
 

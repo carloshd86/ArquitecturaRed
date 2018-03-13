@@ -38,6 +38,12 @@
     <Filter Include="src\Tools">
       <UniqueIdentifier>{badcb5c1-0c70-41a3-afe9-813c500083ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Entities\Logic">
+      <UniqueIdentifier>{7e759cc4-a35f-4223-902c-1c0a03a98f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Entities\View">
+      <UniqueIdentifier>{3a7940af-e716-4926-b9f3-4c65b8eb49e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,6 +78,27 @@
     </ClCompile>
     <ClCompile Include="..\lib\consola.cpp">
       <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Tools\compat.cpp">
+      <Filter>src\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\Logic\logicentity.cpp">
+      <Filter>src\Entities\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\Logic\logicentityhorse.cpp">
+      <Filter>src\Entities\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\Logic\logicentityturtle.cpp">
+      <Filter>src\Entities\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\View\viewentity.cpp">
+      <Filter>src\Entities\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\View\viewentityhorse.cpp">
+      <Filter>src\Entities\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\View\viewentityturtle.cpp">
+      <Filter>src\Entities\View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +143,24 @@
     </ClInclude>
     <ClInclude Include="..\src\Tools\memoryleaks.h">
       <Filter>src\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\Logic\logicentity.h">
+      <Filter>src\Entities\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\Logic\logicentityhorse.h">
+      <Filter>src\Entities\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\Logic\logicentityturtle.h">
+      <Filter>src\Entities\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\View\viewentity.h">
+      <Filter>src\Entities\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\View\viewentityhorse.h">
+      <Filter>src\Entities\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\View\viewentityturtle.h">
+      <Filter>src\Entities\View</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
