@@ -1,4 +1,5 @@
 #include "gameviewlocal.h"
+#include "consola.h"
 #include "../../Entities/Logic/logicentity.h"
 #include "../../Entities/View/viewentity.h"
 #include "../../Entities/View/viewentityhorse.h"
@@ -19,7 +20,7 @@ GameViewLocal::GameViewLocal(IGameServer * gameServer) : GameView(gameServer) {
 
 GameViewLocal::~GameViewLocal() {
 	for(auto entity : mEntities)
-		GAME_DELETE(entity);
+		GAME_DELETE(entity.second);
 
 	mEntities.clear();
 }
@@ -32,8 +33,9 @@ bool GameViewLocal::init() {
 	bool result = GameView::init();
 	GAME_ASSERT(result);
 	
-	mStateChangedFunctions[StateMessage::Type::EntityAdded]   = std::bind(&GameViewLocal::manageMessageEntityAdded, this, std::placeholders::_1);
-	mStateChangedFunctions[StateMessage::Type::EntityRemoved] = std::bind(&GameViewLocal::manageMessageEntityAdded, this, std::placeholders::_1);
+	mStateChangedFunctions[StateMessage::Type::EntityAdded]     = std::bind(&GameViewLocal::manageMessageEntityAdded      , this, std::placeholders::_1);
+	mStateChangedFunctions[StateMessage::Type::EntityRemoved]   = std::bind(&GameViewLocal::manageMessageEntityRemoved    , this, std::placeholders::_1);
+	mStateChangedFunctions[StateMessage::Type::EntityChangePos] = std::bind(&GameViewLocal::manageMessageEntityChangedPos , this, std::placeholders::_1);
 
 	result = true;
 	return result;
@@ -44,8 +46,9 @@ bool GameViewLocal::init() {
 // **************************************************************************************
 
 void GameViewLocal::update(float deltaTime) {
+	clear();
 	for (auto entity : mEntities)
-		entity->update(deltaTime);
+		entity.second->update(deltaTime);
 }
 
 // **************************************************************************************
@@ -53,7 +56,8 @@ void GameViewLocal::update(float deltaTime) {
 // **************************************************************************************
 
 void GameViewLocal::stateChanged(const StateMessage& message) {
-	mStateChangedFunctions[message.GetType()](message);
+	if (mStateChangedFunctions.end() != mStateChangedFunctions.find(message.GetType()))
+		mStateChangedFunctions[message.GetType()](message);
 }
 
 // **************************************************************************************
@@ -63,23 +67,25 @@ void GameViewLocal::stateChanged(const StateMessage& message) {
 void GameViewLocal::manageMessageEntityAdded(const StateMessage& message) {
 	const StateMessageEntityAdded& newEntityMessage = static_cast<const StateMessageEntityAdded&>(message);
 	
-	LogicEntity::EntityType type = newEntityMessage.GetEntity().GetType();
+	const LogicEntity& logicEntity = newEntityMessage.GetEntity();
+	LogicEntity::EntityType type = logicEntity.GetType();
 	ViewEntity * viewEntity = nullptr;
 	switch (type) {
-		case LogicEntity::EntityType::Horse: 
-			ViewEntityHorse * horse = GAME_NEW(ViewEntityHorse, ());
-			// TODO
+		case LogicEntity::EntityType::Horse: {
+			ViewEntityHorse * horse = GAME_NEW(ViewEntityHorse, (logicEntity.GetPosX(), logicEntity.GetPosY()));
 			viewEntity = horse;
 			break;
-		case LogicEntity::EntityType::Turtle: 
-			ViewEntityTurtle * turtle = GAME_NEW(ViewEntityTurtle, ());
-			// TODO
+		}
+
+		case LogicEntity::EntityType::Turtle: {
+			ViewEntityTurtle * turtle = GAME_NEW(ViewEntityTurtle, (logicEntity.GetPosX(), logicEntity.GetPosY()));
 			viewEntity = turtle;
 			break;
+		}
 	}
 
 	if (viewEntity)
-		mEntities.push_back(viewEntity);
+		mEntities[logicEntity.GetId()] = viewEntity;
 }
 
 // **************************************************************************************
@@ -90,6 +96,17 @@ void GameViewLocal::manageMessageEntityRemoved(const StateMessage& message) {
 	const StateMessageEntityRemoved& removeEntityMessage = static_cast<const StateMessageEntityRemoved&>(message);
 	
 	// TODO
+}
+
+// **************************************************************************************
+//
+// **************************************************************************************
+
+void GameViewLocal::manageMessageEntityChangedPos(const StateMessage& message) {
+	const StateMessageEntityChangePos& changedPosMessage = static_cast<const StateMessageEntityChangePos&>(message);
+	unsigned int entityId = changedPosMessage.GetEntityId();
+	if(mEntities.end() != mEntities.find(entityId))
+		mEntities[entityId]->stateChanged(message);
 }
 
 // **************************************************************************************

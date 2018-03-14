@@ -3,6 +3,16 @@
 #include <stdio.h>
 
 
+ViewEntityTurtle::ViewEntityTurtle(int posX, int posY) :
+	mPosX (posX),
+	mPosY (posY) {
+
+}
+
+// **************************************************************************************
+//
+// **************************************************************************************
+
 ViewEntityTurtle::~ViewEntityTurtle() {
 }
 

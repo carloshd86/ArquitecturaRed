@@ -91,19 +91,22 @@ class StateMessageEntityChangePos : public StateMessage {
 
 public:
 
-	StateMessageEntityChangePos(int posX, int posY) : 
+	StateMessageEntityChangePos(int posX, int posY, unsigned int entityId) : 
 		StateMessage(EntityChangePos),
 		mPosX       (posX),
-		mPosY       (posY) {}
+		mPosY       (posY),
+		mEntityId   (entityId) {}
 
-	int GetPosX() const;
-	int GetPosY() const;
+	int          GetPosX     () const;
+	int          GetPosY     () const;
+	unsigned int GetEntityId () const;
 
 
 private:
 
-	int mPosX;
-	int mPosY;
+	int          mPosX;
+	int          mPosY;
+	unsigned int mEntityId;
 };
 
 #endif

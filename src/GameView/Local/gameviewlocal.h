@@ -26,11 +26,12 @@ public:
 
 private:
 
-	std::vector<ViewEntity *>                                                      mEntities;
+	std::map<unsigned int, ViewEntity *>                                           mEntities;
 	std::map<StateMessage::Type, std::function<void(const StateMessage& message)>> mStateChangedFunctions;
 
-	virtual void manageMessageEntityAdded   (const StateMessage& message);
-	virtual void manageMessageEntityRemoved (const StateMessage& message);
+	virtual void manageMessageEntityAdded      (const StateMessage& message);
+	virtual void manageMessageEntityRemoved    (const StateMessage& message);
+	virtual void manageMessageEntityChangedPos (const StateMessage& message);
 
 };
 

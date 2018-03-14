@@ -61,7 +61,8 @@ int LogicEntity::GetPosX() const {
 void LogicEntity::SetPos(int posX, int posY) {
 	mPosX = posX;
 	mPosY = posY;
-	m_pGameServer->stateChanged(StateMessageEntityChangePos(posX, posY));
+	checkScreenLimits();
+	m_pGameServer->stateChanged(StateMessageEntityChangePos(posX, posY, mId));
 }
 
 // **************************************************************************************

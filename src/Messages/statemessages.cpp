@@ -60,3 +60,11 @@ int StateMessageEntityChangePos::GetPosX() const {
 int StateMessageEntityChangePos::GetPosY() const {
 	return mPosY;
 }
+
+// **************************************************************************************
+//
+// **************************************************************************************
+
+unsigned int StateMessageEntityChangePos::GetEntityId() const {
+	return mEntityId;
+}

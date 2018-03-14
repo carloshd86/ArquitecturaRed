@@ -4,6 +4,16 @@
 #include "../../Messages/statemessages.h"
 
 
+ViewEntityHorse::ViewEntityHorse(int posX, int posY) :
+	mPosX (posX),
+	mPosY (posY) {
+
+}
+
+// **************************************************************************************
+//
+// **************************************************************************************
+
 ViewEntityHorse::~ViewEntityHorse() {
 }
 

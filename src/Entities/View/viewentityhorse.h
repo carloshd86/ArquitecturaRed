@@ -10,6 +10,7 @@ class ViewEntityHorse : public ViewEntity {
 
 public:
 
+	ViewEntityHorse(int posX, int posY);
 	virtual ~ViewEntityHorse();
 
 	virtual void update(float deltaTime);
