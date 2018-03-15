@@ -6,7 +6,8 @@
 LogicEntity::LogicEntity(IGameServer * pGameServer, EntityType type, unsigned int id) :
 	m_pGameServer (pGameServer),
 	mType         (type),
-	mId           (id) {}
+	mId           (id),
+	mPaused       (false) {}
 
 // **************************************************************************************
 //

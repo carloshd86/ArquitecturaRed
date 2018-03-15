@@ -169,6 +169,7 @@
     <ClCompile Include="..\src\GameServer\Local\gameserverlocal.cpp" />
     <ClCompile Include="..\src\GameView\gameview.cpp" />
     <ClCompile Include="..\src\GameView\Local\gameviewlocal.cpp" />
+    <ClCompile Include="..\src\InputManager\simpleinputmanager.cpp" />
     <ClCompile Include="..\src\Messages\commandmessages.cpp" />
     <ClCompile Include="..\src\Messages\statemessages.cpp" />
     <ClCompile Include="..\src\Tools\compat.cpp" />
@@ -191,6 +192,8 @@
     <ClInclude Include="..\src\GameView\gameview.h" />
     <ClInclude Include="..\src\GameView\igameview.h" />
     <ClInclude Include="..\src\GameView\Local\gameviewlocal.h" />
+    <ClInclude Include="..\src\InputManager\iinputmanager.h" />
+    <ClInclude Include="..\src\InputManager\simpleinputmanager.h" />
     <ClInclude Include="..\src\Messages\commandmessages.h" />
     <ClInclude Include="..\src\Messages\statemessages.h" />
     <ClInclude Include="..\src\Tools\asserts.h" />

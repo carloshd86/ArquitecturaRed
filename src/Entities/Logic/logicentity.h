@@ -38,6 +38,7 @@ protected:
 	int          mPosY;
 	unsigned int mId;
 	EntityType   mType;
+	bool         mPaused;
 
 	IGameServer * m_pGameServer;
 };

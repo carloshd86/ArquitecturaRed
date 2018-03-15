@@ -11,6 +11,8 @@ public:
 
 	enum Type {
 		GameExit,
+		GamePause,
+		GameResume,
 		EntityAdded,
 		EntityRemoved,
 		EntityChangePos
@@ -40,6 +42,28 @@ class StateMessageGameExit : public StateMessage {
 public:
 
 	StateMessageGameExit() : StateMessage(GameExit) {}
+};
+
+// *************************************************************************************
+//
+// *************************************************************************************
+
+class StateMessageGamePause : public StateMessage {
+
+public:
+
+	StateMessageGamePause() : StateMessage(GamePause) {}
+};
+
+// *************************************************************************************
+//
+// *************************************************************************************
+
+class StateMessageGameResume : public StateMessage {
+
+public:
+
+	StateMessageGameResume() : StateMessage(GameResume) {}
 };
 
 // *************************************************************************************

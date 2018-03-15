@@ -48,8 +48,21 @@ void GameServer::managePlayerCommand(const CommandMessage& message) {
 	for(LogicEntity * entity : mEntities)
 		entity->manageCommand(message);
 	
-	if (message.GetType() == CommandMessage::GameExit)
-		stateChanged(StateMessageGameExit());
+	CommandMessage::Type messageType = message.GetType();
+
+	switch (messageType) {
+		case CommandMessage::GameExit:
+			stateChanged(StateMessageGameExit());
+		break;
+
+		case CommandMessage::GamePause:
+			stateChanged(StateMessageGamePause());
+			break;
+
+		case CommandMessage::GameResume:
+			stateChanged(StateMessageGameResume());
+			break;
+	}
 }
 
 // **************************************************************************************

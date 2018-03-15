@@ -7,6 +7,8 @@
 #include "../../Tools/asserts.h"
 #include "../../Tools/memoryleaks.h"
 #include "../../Messages/commandmessages.h"
+#include "../../InputManager/iinputmanager.h"
+#include "../src/InputManager/simpleinputmanager.h"
 
 
 GameViewLocal::GameViewLocal(IGameServer * gameServer) : GameView(gameServer) {
@@ -36,6 +38,11 @@ bool GameViewLocal::init() {
 	mStateChangedFunctions[StateMessage::Type::EntityAdded]     = std::bind(&GameViewLocal::manageMessageEntityAdded      , this, std::placeholders::_1);
 	mStateChangedFunctions[StateMessage::Type::EntityRemoved]   = std::bind(&GameViewLocal::manageMessageEntityRemoved    , this, std::placeholders::_1);
 	mStateChangedFunctions[StateMessage::Type::EntityChangePos] = std::bind(&GameViewLocal::manageMessageEntityChangedPos , this, std::placeholders::_1);
+
+	IInputManager * pInputManager = SimpleInputManager::Instance(); 
+	GAME_ASSERT(pInputManager);
+
+	pInputManager->registerToKeyboardEvent(std::bind(&GameViewLocal::manageKeyboardEvent, this, std::placeholders::_1));
 
 	result = true;
 	return result;
