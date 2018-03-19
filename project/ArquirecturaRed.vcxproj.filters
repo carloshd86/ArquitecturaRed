@@ -47,6 +47,9 @@
     <Filter Include="src\InputManager">
       <UniqueIdentifier>{6b945898-4312-4f46-94c3-a2469e0f0321}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib\Net">
+      <UniqueIdentifier>{29bb6943-b511-422f-b9a8-9f4a9ecc9530}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -105,6 +108,12 @@
     </ClCompile>
     <ClCompile Include="..\src\InputManager\simpleinputmanager.cpp">
       <Filter>src\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Net\Net.cpp">
+      <Filter>lib\Net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameServer\Remote\gameserverremote.cpp">
+      <Filter>src\GameServer\Remote</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +182,18 @@
     </ClInclude>
     <ClInclude Include="..\src\InputManager\simpleinputmanager.h">
       <Filter>src\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Net\INet.h">
+      <Filter>lib\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Net\Net.h">
+      <Filter>lib\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Messages\messages.h">
+      <Filter>src\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameServer\Remote\gameserverremote.h">
+      <Filter>src\GameServer\Remote</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

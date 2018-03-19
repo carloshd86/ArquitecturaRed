@@ -88,7 +88,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
       <AdditionalIncludeDirectories>../lib</AdditionalIncludeDirectories>
@@ -96,7 +96,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib;../lib/Net/enet;F:\MasterUtad\Comportamientos\Proyectos\ArquitecturaRed\lib\Net\enet</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\consola.cpp" />
+    <ClCompile Include="..\lib\Net\Net.cpp" />
     <ClCompile Include="..\src\Entities\entity.cpp" />
     <ClCompile Include="..\src\Entities\horse.cpp" />
     <ClCompile Include="..\src\Entities\Logic\logicentity.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="..\src\Entities\View\viewentityturtle.cpp" />
     <ClCompile Include="..\src\GameServer\gameserver.cpp" />
     <ClCompile Include="..\src\GameServer\Local\gameserverlocal.cpp" />
+    <ClCompile Include="..\src\GameServer\Remote\gameserverremote.cpp" />
     <ClCompile Include="..\src\GameView\gameview.cpp" />
     <ClCompile Include="..\src\GameView\Local\gameviewlocal.cpp" />
     <ClCompile Include="..\src\InputManager\simpleinputmanager.cpp" />
@@ -177,6 +179,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\consola.h" />
+    <ClInclude Include="..\lib\Net\INet.h" />
+    <ClInclude Include="..\lib\Net\Net.h" />
     <ClInclude Include="..\src\Entities\entity.h" />
     <ClInclude Include="..\src\Entities\horse.h" />
     <ClInclude Include="..\src\Entities\Logic\logicentity.h" />
@@ -189,12 +193,14 @@
     <ClInclude Include="..\src\GameServer\gameserver.h" />
     <ClInclude Include="..\src\GameServer\igameserver.h" />
     <ClInclude Include="..\src\GameServer\Local\gameserverlocal.h" />
+    <ClInclude Include="..\src\GameServer\Remote\gameserverremote.h" />
     <ClInclude Include="..\src\GameView\gameview.h" />
     <ClInclude Include="..\src\GameView\igameview.h" />
     <ClInclude Include="..\src\GameView\Local\gameviewlocal.h" />
     <ClInclude Include="..\src\InputManager\iinputmanager.h" />
     <ClInclude Include="..\src\InputManager\simpleinputmanager.h" />
     <ClInclude Include="..\src\Messages\commandmessages.h" />
+    <ClInclude Include="..\src\Messages\messages.h" />
     <ClInclude Include="..\src\Messages\statemessages.h" />
     <ClInclude Include="..\src\Tools\asserts.h" />
     <ClInclude Include="..\src\Tools\memoryleaks.h" />
