@@ -2,7 +2,7 @@
 #include "../Entities/Logic/logicentity.h"
 #include "../Messages/commandmessages.h"
 #include "../Messages/statemessages.h"
-#include "../Tools/memoryleaks.h"
+#include "../Application/globals.h"
 
 
 const unsigned int FIRST_IDENTITY_ID = 1;

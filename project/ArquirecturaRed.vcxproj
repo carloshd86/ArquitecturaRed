@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="..\lib\consola.cpp" />
     <ClCompile Include="..\lib\Net\Net.cpp" />
+    <ClCompile Include="..\src\Application\gameapplication.cpp" />
     <ClCompile Include="..\src\Entities\entity.cpp" />
     <ClCompile Include="..\src\Entities\horse.cpp" />
     <ClCompile Include="..\src\Entities\Logic\logicentity.cpp" />
@@ -171,6 +172,7 @@
     <ClCompile Include="..\src\GameServer\Remote\gameserverremote.cpp" />
     <ClCompile Include="..\src\GameView\gameview.cpp" />
     <ClCompile Include="..\src\GameView\Local\gameviewlocal.cpp" />
+    <ClCompile Include="..\src\GameView\Remote\gameviewremote.cpp" />
     <ClCompile Include="..\src\InputManager\simpleinputmanager.cpp" />
     <ClCompile Include="..\src\Messages\commandmessages.cpp" />
     <ClCompile Include="..\src\Messages\statemessages.cpp" />
@@ -181,6 +183,8 @@
     <ClInclude Include="..\lib\consola.h" />
     <ClInclude Include="..\lib\Net\INet.h" />
     <ClInclude Include="..\lib\Net\Net.h" />
+    <ClInclude Include="..\src\Application\gameapplication.h" />
+    <ClInclude Include="..\src\Application\globals.h" />
     <ClInclude Include="..\src\Entities\entity.h" />
     <ClInclude Include="..\src\Entities\horse.h" />
     <ClInclude Include="..\src\Entities\Logic\logicentity.h" />
@@ -197,6 +201,7 @@
     <ClInclude Include="..\src\GameView\gameview.h" />
     <ClInclude Include="..\src\GameView\igameview.h" />
     <ClInclude Include="..\src\GameView\Local\gameviewlocal.h" />
+    <ClInclude Include="..\src\GameView\Remote\gameviewremote.h" />
     <ClInclude Include="..\src\InputManager\iinputmanager.h" />
     <ClInclude Include="..\src\InputManager\simpleinputmanager.h" />
     <ClInclude Include="..\src\Messages\commandmessages.h" />

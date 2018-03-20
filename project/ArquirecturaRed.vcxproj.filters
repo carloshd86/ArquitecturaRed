@@ -50,6 +50,9 @@
     <Filter Include="lib\Net">
       <UniqueIdentifier>{29bb6943-b511-422f-b9a8-9f4a9ecc9530}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Application">
+      <UniqueIdentifier>{847c063a-d4bb-40a4-88da-4cfff49ee839}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -114,6 +117,12 @@
     </ClCompile>
     <ClCompile Include="..\src\GameServer\Remote\gameserverremote.cpp">
       <Filter>src\GameServer\Remote</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameView\Remote\gameviewremote.cpp">
+      <Filter>src\GameView\Remote</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Application\gameapplication.cpp">
+      <Filter>src\Application</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +203,15 @@
     </ClInclude>
     <ClInclude Include="..\src\GameServer\Remote\gameserverremote.h">
       <Filter>src\GameServer\Remote</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameView\Remote\gameviewremote.h">
+      <Filter>src\GameView\Remote</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Application\globals.h">
+      <Filter>src\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Application\gameapplication.h">
+      <Filter>src\Application</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

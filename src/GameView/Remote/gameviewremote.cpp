@@ -1,44 +1,66 @@
-#include "gameserverremote.h"
-#include "../../Messages/commandmessages.h"
+#include "gameviewremote.h"
+#include "../../Application/globals.h"
 #include "../../Application/gameapplication.h"
 
 
-GameServerRemote::GameServerRemote() {
+GameViewRemote::GameViewRemote(IGameServer * gameServer) :
+	GameView(gameServer) {
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-GameServerRemote::~GameServerRemote() {
+GameViewRemote::~GameViewRemote() {
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-void GameServerRemote::update(float deltaTime) {
 
+bool GameViewRemote::init() {
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-void GameServerRemote::managePlayerCommand(const CommandMessage& message) {
-	GameServer::managePlayerCommand(message);
-	if (m_bufferOutFreeSpace > 0) {
+void GameViewRemote::update(float deltaTime) {
+	GameView::update(deltaTime);
+	sendAndReceiveNetMessages();
+
+	m_bufferOutFreeSpace = MAX_NET_BUFFER_SIZE;
+	m_bufferOutPointer   = m_bufferOut;
+
+	auto it = m_remoteServerMessages.begin();
+	while (it != m_remoteServerMessages.end())
+	{
+		m_pGameServer->managePlayerCommand(*(*it));
+		GAME_DELETE(*it);
+		++it;
+	}
+	m_remoteServerMessages.clear();
+}
+
+// **************************************************************************************
+//
+// **************************************************************************************
+
+void GameViewRemote::stateChanged(const StateMessage& message) {
+	if (m_bufferOutFreeSpace > 0)
+	{
 		if (!message.serialize(m_bufferOutPointer, m_bufferOutFreeSpace))
 			m_bufferOutFreeSpace = 0;
 	}
 }
 
+
 // **************************************************************************************
 //
 // **************************************************************************************
 
-
-void GameServerRemote::sendAndReceiveNetMessages() {
+void GameViewRemote::sendAndReceiveNetMessages() {
 	INet * pNet = GameApplication::Instance()->GetNet();
 
 	unsigned char *pBufferIn = nullptr;
@@ -50,6 +72,6 @@ void GameServerRemote::sendAndReceiveNetMessages() {
 		// Remote messages deserialization
 		CommandMessage *pMessage = nullptr;
 		while (pMessage = CommandMessage::getMessageFromBuffer(pBufferIn, iLenIn))
-			stateChanged(*pMessage);
+			m_remoteServerMessages.push_back(pMessage);
 	}
 }

@@ -4,11 +4,10 @@
 #include "../../Entities/View/viewentity.h"
 #include "../../Entities/View/viewentityhorse.h"
 #include "../../Entities/View/viewentityturtle.h"
-#include "../../Tools/asserts.h"
-#include "../../Tools/memoryleaks.h"
+#include "../../Application/globals.h"
 #include "../../Messages/commandmessages.h"
 #include "../../InputManager/iinputmanager.h"
-#include "../src/InputManager/simpleinputmanager.h"
+#include "../../InputManager/simpleinputmanager.h"
 
 
 GameViewLocal::GameViewLocal(IGameServer * gameServer) : GameView(gameServer) {

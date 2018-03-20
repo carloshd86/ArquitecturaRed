@@ -1,8 +1,7 @@
 #include "gameserverlocal.h"
-#include "../../Tools/memoryleaks.h"
+#include "../../Application/globals.h"
 #include "../../Entities/Logic/logicentityhorse.h"
 #include "../../Entities/Logic/logicentityturtle.h"
-#include "../../Tools/asserts.h"
 
 
 GameServerLocal::GameServerLocal() {
