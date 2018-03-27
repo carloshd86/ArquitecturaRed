@@ -2,13 +2,24 @@
 #define __GAME_VIEW_H__
 
 #include "igameview.h"
+#include "../GameServer/igameserver.h"
+
 
 class GameView : public IGameView {
 
 public:
 
-	virtual void update       (float deltaTime)                    = 0;
-	virtual void stateChanged (const StateMessage& message) = 0;
+	GameView(IGameServer * gameServer);
+	virtual ~GameView();
+
+	virtual bool init();
+
+	virtual void update       (float deltaTime);
+	virtual void stateChanged (const StateMessage& message);
+
+protected:
+
+	IGameServer *m_pGameServer;
 };
 
 

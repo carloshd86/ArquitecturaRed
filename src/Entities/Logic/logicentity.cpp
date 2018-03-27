@@ -1,15 +1,26 @@
-#include "entity.h"
+#include "logicentity.h"
 #include "consola.h"
+#include "../../Messages/statemessages.h"
 
 
-Entity::~Entity() {
+LogicEntity::LogicEntity(IGameServer * pGameServer, EntityType type, unsigned int id) :
+	m_pGameServer (pGameServer),
+	mType         (type),
+	mId           (id),
+	mPaused       (false) {}
+
+// **************************************************************************************
+//
+// **************************************************************************************
+
+LogicEntity::~LogicEntity() {
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-void Entity::checkScreenLimits()
+void LogicEntity::checkScreenLimits()
 {
 	int screenOffsetX ;
 	int screenOffsetY;
@@ -40,7 +51,7 @@ void Entity::checkScreenLimits()
 //
 // **************************************************************************************
 
-int Entity::GetPosX() const {
+int LogicEntity::GetPosX() const {
 	return mPosX;
 }
 
@@ -48,23 +59,26 @@ int Entity::GetPosX() const {
 //
 // **************************************************************************************
 
-void Entity::SetPosX(int posX) {
+void LogicEntity::SetPos(int posX, int posY) {
 	mPosX = posX;
+	mPosY = posY;
+	checkScreenLimits();
+	m_pGameServer->stateChanged(StateMessageEntityChangePos(posX, posY, mId));
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-void Entity::MovePosX(int addX) {
-	mPosX += addX;
+void LogicEntity::MovePos(int addX, int addY) {
+	SetPos(mPosX + addX, mPosY + addY);
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-int Entity::GetPosY() const {
+int LogicEntity::GetPosY() const {
 	return mPosY;
 }
 
@@ -72,14 +86,14 @@ int Entity::GetPosY() const {
 //
 // **************************************************************************************
 
-void Entity::SetPosY(int posX) {
-	mPosY = posX;
+unsigned int LogicEntity::GetId () const {
+	return mId;
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-void Entity::MovePosY(int addY) {
-	mPosY += addY;
+LogicEntity::EntityType LogicEntity::GetType() const {
+	return mType;
 }

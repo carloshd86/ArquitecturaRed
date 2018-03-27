@@ -1,9 +1,12 @@
-#include "gameview.h"
-#include "../Tools/asserts.h"
+#include "viewentityhorse.h"
+#include "consola.h"
+#include <stdio.h>
+#include "../../Messages/statemessages.h"
 
 
-GameView::GameView(IGameServer * gameServer) :
-	m_pGameServer(gameServer){
+ViewEntityHorse::ViewEntityHorse(int posX, int posY) :
+	mPosX (posX),
+	mPosY (posY) {
 
 }
 
@@ -11,32 +14,34 @@ GameView::GameView(IGameServer * gameServer) :
 //
 // **************************************************************************************
 
-
-GameView::~GameView() {
+ViewEntityHorse::~ViewEntityHorse() {
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-
-bool GameView::init() {
-	GAME_ASSERT(m_pGameServer);
-	m_pGameServer->registerView(this);
-
-	return true;
+void ViewEntityHorse::update(float deltaTime) {
+	gotoxy(mPosX, mPosY);
+	printf("HHHH");
+	hidecursor();
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-void GameView::update(float deltaTime) {
+void ViewEntityHorse::stateChanged(const StateMessage& message) {
+	switch (message.GetType()) {
+	case  StateMessage::Type::EntityChangePos: ChangePosition(static_cast<const StateMessageEntityChangePos&>(message)); break;
+	}
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-void GameView::stateChanged(const StateMessage& message) {
+void ViewEntityHorse::ChangePosition(const StateMessageEntityChangePos& message) {
+	mPosX = message.GetPosX();
+	mPosY = message.GetPosY();
 }

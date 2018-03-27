@@ -1,10 +1,12 @@
-#include "gameview.h"
-#include "../Tools/asserts.h"
+#include "simpleinputmanager.h"
+#include <conio.h>
+#include <stdio.h>
 
 
-GameView::GameView(IGameServer * gameServer) :
-	m_pGameServer(gameServer){
+IInputManager * SimpleInputManager::mInstance = nullptr;
 
+
+SimpleInputManager::~SimpleInputManager() {
 }
 
 // **************************************************************************************
@@ -12,7 +14,18 @@ GameView::GameView(IGameServer * gameServer) :
 // **************************************************************************************
 
 
-GameView::~GameView() {
+SimpleInputManager::SimpleInputManager() {
+}
+
+// **************************************************************************************
+//
+// **************************************************************************************
+
+IInputManager * SimpleInputManager::Instance() {
+	if (!mInstance)
+		mInstance = new SimpleInputManager();
+
+	return mInstance;
 }
 
 // **************************************************************************************
@@ -20,23 +33,20 @@ GameView::~GameView() {
 // **************************************************************************************
 
 
-bool GameView::init() {
-	GAME_ASSERT(m_pGameServer);
-	m_pGameServer->registerView(this);
-
-	return true;
+void SimpleInputManager::registerToKeyboardEvent (std::function<void(int)> fun) {
+	mRegisteredFunctions.push_back(fun);
 }
 
 // **************************************************************************************
 //
 // **************************************************************************************
 
-void GameView::update(float deltaTime) {
-}
+void SimpleInputManager::update(float deltaTime) {
+	int key = 0;
 
-// **************************************************************************************
-//
-// **************************************************************************************
-
-void GameView::stateChanged(const StateMessage& message) {
+	if (_kbhit()) {
+		key = _getch();
+		for(auto it = mRegisteredFunctions.begin(); it != mRegisteredFunctions.end(); ++it)
+			(*it)(key);
+	}
 }

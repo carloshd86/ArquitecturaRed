@@ -7,6 +7,7 @@ class IGameView {
 
 public:
 
+	virtual bool init         ()                            = 0;
 	virtual void update       (float deltaTime)             = 0;
 	virtual void stateChanged (const StateMessage& message) = 0;
 };
